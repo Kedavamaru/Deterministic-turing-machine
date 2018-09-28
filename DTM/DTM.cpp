@@ -12,8 +12,8 @@ constexpr int R = +1; // Move to right
 
 int main() {
 	// General configurations
-	int  print_every = 1000000; // cycles
-	bool print_tape = false;
+	int  print_every = 1; // cycles
+	bool print_tape = true;
 	bool print_to_screen = true;
 	bool print_states_as_characters = true;
 
@@ -22,15 +22,13 @@ int main() {
 	// You can use single characters as states, for example 'A'.
 	vector<vector<int>> rules = {
 		{0, 'A', 1, 'B', R},
-		{1, 'A', 1, 'C', L},
-		{0, 'B', 1, 'C', R},
-		{1, 'B', 1, 'B', R},
-		{0, 'C', 1, 'D', R},
-		{1, 'C', 0, 'E', L},
-		{0, 'D', 1, 'A', L},
-		{1, 'D', 1, 'D', L},
-		{0, 'E', 1,  H , R},
-		{1, 'E', 0, 'A', L},
+		{1, 'A', 1, 'B', L},
+		{0, 'B', 1, 'A', L},
+		{1, 'B', 0, 'C', L},
+		{0, 'C', 1,  H , R},
+		{1, 'C', 1, 'D', L},
+		{0, 'D', 1, 'D', R},
+		{1, 'D', 0, 'A', R},
 	}; // Busy beaver of 5 states
 
 	// Specify the initial state, the initial position on the tape, and the tape with its initial values
@@ -42,7 +40,7 @@ int main() {
 	// you'll have 250'000'000 cells per every 1GB or RAM your computer have availabe
 
 
-	// End of user defined imput, everything is handled automatically from now on
+	// Everything is set! Now compile the code and run your deterministic turing machine!
 
 
 
