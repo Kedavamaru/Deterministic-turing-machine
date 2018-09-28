@@ -12,16 +12,16 @@ constexpr int R = +1; // Move to right
 
 int main() {
 	// General configurations
-	int  print_every = 1; // cycles
+	int  print_every = 1; // step
 	bool print_tape = true;
 	bool print_to_screen = true;
-	bool print_states_as_characters = true;
-
+	bool print_states_as_characters = true; // this turns numbers into ASCII characters when printing the states, use it if you are going to specify the states as characters and not numbers
+	
 	// Specify the set of rules
-	// a rule consist of { scanned symbol, current_state, write symbol, next state, move head to }
-	// You can use single characters as states, for example 'A'.
+	// A rule consist of { scanned symbol, current_state, write symbol, next state, move head to }
+	// You can use single characters as states, for example 'A', or numbers, as you preffer.
 	vector<vector<int>> rules = {
-		{0, 'A', 1, 'B', R},
+		{0, 'A', 1, 'B', R},			 // If you feel curious, 'A' is transformed to (int)65, the ASCII value for the 'A' character
 		{1, 'A', 1, 'B', L},
 		{0, 'B', 1, 'A', L},
 		{1, 'B', 0, 'C', L},
@@ -29,7 +29,7 @@ int main() {
 		{1, 'C', 1, 'D', L},
 		{0, 'D', 1, 'D', R},
 		{1, 'D', 0, 'A', R},
-	}; // Busy beaver of 5 states
+	}; // Busy beaver of 4 states
 
 	// Specify the initial state, the initial position on the tape, and the tape with its initial values
 	int         initial_state = 'A';
