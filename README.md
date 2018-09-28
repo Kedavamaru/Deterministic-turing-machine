@@ -6,7 +6,7 @@ This is a c++ code for a Deterministic Turing Machine: https://en.wikipedia.org/
 
 Download DTM.cpp, everything you need is inside of this file.
 
-First, I define this variables:
+First, notice that this four variables:
 
     constexpr int H = -1; // Stop computing
     constexpr int L = -1; // Move to Left
@@ -17,8 +17,9 @@ Then add the machine rules:
 
     // A rule consist of { scanned symbol, current_state, write symbol, next state, move head to }
     // You can use single characters as states, for example 'A', or numbers, as you preffer.
+    
     vector<vector<int>> rules = {
-        {0, 'A', 1, 'B', R},
+        {0, 'A', 1, 'B', R},            // If you feel curious, 'A' is transformed to (int)65, the ASCII value for the 'A' character
         {1, 'A', 1, 'B', L},
         {0, 'B', 1, 'A', L},
         {1, 'B', 0, 'C', L},
@@ -36,9 +37,19 @@ And specify the initial values:
     vector<int> initial_tape = { 0 }; // minimum tape length is one cell
 
     // more cells will be added automatically with '0' when needed, this is done this way for memory reasons
-    // you'll have 250'000'000 cells per every 1GB or RAM your computer have availabe
+    // you'll have 250'000'000 cells per every 1GB of RAM your computer have availabe
 
 Then run and have fun!
+
+# Output customization
+
+You can modify this settings if you want, this can be handy in some cases:
+
+	// General configurations
+	int  print_every = 1; // step
+	bool print_tape = true;
+	bool print_to_screen = true;
+	bool print_states_as_characters = true;    // this turns numbers into ASCII characters when printing the states, use it if you are going to specify the states as characters and not numbers
 
 # Output
 
